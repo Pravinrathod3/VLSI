@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body>
+
+<h2>STUDENT REGISTRATION FORM</h2>
+
+<form id="myForm" onsubmit="return validate()">
+
+    First Name:
+    <input type="text" id="fname" placeholder="First Name">
+    <br><br>
+
+    Last Name:
+    <input type="text" id="lname" placeholder="Last Name">
+    <br><br>
+
+    Address:
+    <textarea id="address" placeholder="Enter Address"></textarea>
+    <br><br>
+
+    City:
+    <input type="text" id="city" placeholder="City">
+    <br><br>
+
+    State:
+    <input type="text" id="state" placeholder="State">
+    <br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    Mobile Number:
+    <input type="text" id="mobile" placeholder="Mobile Number">
+    <br><br>
+
+    Email:
+    <input type="text" id="email" placeholder="Email ID">
+    <br><br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+<script>
+
+function validate() {
+
+    let fname = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let address = document.getElementById("address").value;
+    let city = document.getElementById("city").value;
+    let state = document.getElementById("state").value;
+    let mobile = document.getElementById("mobile").value;
+    let email = document.getElementById("email").value;
+
+    // Name validation
+    let namePattern = /^[A-Za-z ]+$/;
+
+    if (fname == "") {
+        alert("Please enter First Name");
+        document.getElementById("fname").focus();
+        return false;
+    }
+
+    if (!namePattern.test(fname)) {
+        alert("Enter a valid First Name");
+        document.getElementById("fname").focus();
+        return false;
+    }
+
+    if (lname == "") {
+        alert("Please enter Last Name");
+        document.getElementById("lname").focus();
+        return false;
+    }
+
+    if (!namePattern.test(lname)) {
+        alert("Enter a valid Last Name");
+        document.getElementById("lname").focus();
+        return false;
+    }
+
+    // Address validation
+    if (address == "") {
+        alert("Please enter Address");
+        document.getElementById("address").focus();
+        return false;
+    }
+
+    if (city == "" || state == "") {
+        alert("Please enter City and State");
+        return false;
+    }
+
+    // Gender validation
+    let gender = document.querySelector(
+        'input[name="gender"]:checked'
+    );
+
+    if (gender == null) {
+        alert("Please select Gender");
+        return false;
+    }
+
+    // Mobile validation
+    let mobilePattern = /^[0-9]{10}$/;
+
+    if (!mobilePattern.test(mobile)) {
+        alert("Enter valid 10 digit Mobile Number");
+        document.getElementById("mobile").focus();
+        return false;
+    }
+
+    // Email validation
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Enter valid Email ID");
+        document.getElementById("email").focus();
+        return false;
+    }
+
+    // Successful registration
+    document.body.innerHTML =
+        "<h1>Congratulations!</h1>" +
+        "<h2>Welcome " + fname + " " + lname + "</h2>" +
+        "<p>Your registration is successful.</p>";
+
+    return false;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Comparison</title>
+</head>
+<body>
+
+<h2>String Comparison</h2>
+
+<script>
+
+    // Two strings
+    let string1 = "linux";
+    let string2 = "LINUX";
+
+    // 1. Strict Equality Comparison
+    document.write("<h3>1. Strict Equality</h3>");
+
+    document.write("String1: " + string1 + "<br>");
+    document.write("String2: " + string2 + "<br>");
+
+    document.write(
+        "Comparison: " + (string1 === string2) + "<br>"
+    );
+
+    // Case-insensitive comparison
+    document.write(
+        "ToLowerCase: " +
+        (string1.toLowerCase() === string2.toLowerCase()) +
+        "<br>"
+    );
+
+    document.write(
+        "ToUpperCase: " +
+        (string1.toUpperCase() === string2.toUpperCase()) +
+        "<br>"
+    );
+
+    // 2. Compare String Length
+    document.write("<h3>2. Length Comparison</h3>");
+
+    document.write(
+        "String1 Length: " + string1.length + "<br>"
+    );
+
+    document.write(
+        "String2 Length: " + string2.length + "<br>"
+    );
+
+    document.write(
+        "String1 is longer: " +
+        (string1.length > string2.length) + "<br>"
+    );
+
+    // 3. Alphabetical Comparison
+    document.write("<h3>3. Alphabetical Comparison</h3>");
+
+    let str3 = "car";
+    let str4 = "bus";
+
+    document.write(
+        "car compared with bus: " +
+        str3.localeCompare(str4) + "<br>"
+    );
+
+    document.write(
+        "bus compared with car: " +
+        str4.localeCompare(str3) + "<br>"
+    );
+
+    document.write(
+        "bus compared with bus: " +
+        str4.localeCompare("bus") + "<br>"
+    );
+
+    //4. Regular Expression Comparison
+    document.write("<h3>4. Regular Expression Comparison</h3>");
+
+    let pattern = /^linux$/i;
+
+    document.write(
+        "Regex Match: " + pattern.test(string2)
+    );
+
+</script>
+
+</body>
+</html>

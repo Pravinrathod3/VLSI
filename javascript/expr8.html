@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+
+<h1>Welcome to My Website</h1>
+
+<p>Move your mouse over the button to change background color.</p>
+
+<!-- Mouseover Event -->
+<button onmouseover="mouseOver()">
+    Mouse Over Me
+</button>
+
+<br><br>
+
+<p>Click inside the input box to change background color.</p>
+
+<!-- Focus Event -->
+<input type="text"
+       onfocus="changeFocus()"
+       placeholder="Enter your name">
+
+<script>
+
+    // Mouseover Event Function
+    function mouseOver() {
+        document.body.style.backgroundColor = "lightblue";
+    }
+
+    // Focus Event Function
+    function changeFocus() {
+        document.body.style.backgroundColor = "lightgreen";
+    }
+
+</script>
+
+</body>
+</html>

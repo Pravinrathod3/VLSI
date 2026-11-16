@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<h2>JavaScript String Operations</h2>
+
+<script>
+
+    // Input string
+    let str = "MADAM";
+
+    // 1. Reverse String
+    let reverse = str.split("").reverse().join("");
+
+    // 2. Replace Characters
+    let replaced = str.replace("M", "R");
+
+    // 3. Check Palindrome
+    if (str === reverse) {
+        document.write("String is Palindrome<br>");
+    }
+    else {
+        document.write("String is Not Palindrome<br>");
+    }
+
+    // Display Results
+    document.write("Original String: " + str + "<br>");
+    document.write("Reversed String: " + reverse + "<br>");
+    document.write("Replaced String: " + replaced + "<br>");
+
+</script>
+
+</body>
+</html>

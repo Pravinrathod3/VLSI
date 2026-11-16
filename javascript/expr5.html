@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+
+<h2>JavaScript Countdown Timer</h2>
+
+<script>
+
+    // Set countdown target date and time
+    let deadline = new Date("Dec 31, 2026 23:59:59").getTime();
+
+    // Display timer
+    document.write("<h3 id='demo'></h3>");
+
+    // Update countdown every second
+    let x = setInterval(function() {
+
+        // Get today's date and time in milliseconds
+        let now = new Date().getTime();
+
+        // Find time interval between now and deadline
+        let timeLeft = deadline - now;
+
+        // Calculate days, hours, minutes and seconds
+        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+
+        let hours = Math.floor(
+            (timeLeft % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+        let minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+        let seconds = Math.floor(
+            (timeLeft % (1000 * 60)) / 1000
+        );
+
+        // Display countdown
+        document.getElementById("demo").innerHTML =
+            days + " Days : " +
+            hours + " Hours : " +
+            minutes + " Minutes : " +
+            seconds + " Seconds";
+
+        // Check if countdown is finished
+        if (timeLeft < 0) {
+
+            clearInterval(x);
+
+            document.getElementById("demo").innerHTML =
+                "Countdown Finished";
+
+        }
+
+    }, 1000);
+
+</script>
+
+</body>
+</html>

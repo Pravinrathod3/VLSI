@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Operations</title>
+</head>
+<body>
+
+<h2>JavaScript Array Operations</h2>
+
+<script>
+
+    // Create an array
+    let fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+    document.write("Original Array: " + fruits + "<br><br>");
+
+    // 1. Remove specific element
+    let index = fruits.indexOf("Banana");
+
+    if (index !== -1) {
+        fruits.splice(index, 1);
+    }
+
+    document.write("After Removing Banana: " + fruits + "<br><br>");
+
+    // 2. Check if array contains a value
+    let result = fruits.includes("Mango");
+
+    document.write("Contains Mango: " + result + "<br><br>");
+
+    // 3. Empty the array
+    fruits.splice(0, fruits.length);
+
+    document.write("After Emptying Array: " + fruits + "<br>");
+
+    document.write("Array Length: " + fruits.length);
+
+</script>
+
+</body>
+</html>

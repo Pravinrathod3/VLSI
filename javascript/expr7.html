@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Set Operations</title>
+</head>
+<body>
+
+<h2>JavaScript Set Operations</h2>
+
+<script>
+
+    // Create two sets
+    const setA = new Set(["apple", "mango", "orange"]);
+    const setB = new Set(["grapes", "apple", "banana"]);
+
+    // Display original sets
+    document.write("Set A: " + [...setA] + "<br>");
+    document.write("Set B: " + [...setB] + "<br><br>");
+
+    // 1. Union Operation
+    function union(a, b) {
+
+        let unionSet = new Set(a);
+
+        for (let i of b) {
+            unionSet.add(i);
+        }
+
+        return unionSet;
+    }
+
+    document.write("Union: " +
+        [...union(setA, setB)] + "<br><br>");
+
+    // 2. Intersection Operation
+    function intersection(a, b) {
+
+        let intersectionSet = new Set();
+
+        for (let i of b) {
+            if (a.has(i)) {
+                intersectionSet.add(i);
+            }
+        }
+
+        return intersectionSet;
+    }
+
+    document.write("Intersection: " +
+        [...intersection(setA, setB)] + "<br><br>");
+
+    // 3. Difference Operation
+    function difference(a, b) {
+
+        let differenceSet = new Set(a);
+
+        for (let i of b) {
+            differenceSet.delete(i);
+        }
+
+        return differenceSet;
+    }
+
+    document.write("Difference (A-B): " +
+        [...difference(setA, setB)] + "<br><br>");
+
+    // 4. Subset Operation
+    function subset(a, b) {
+
+        for (let i of b) {
+
+            if (!a.has(i)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    const subsetB = new Set(["apple", "orange"]);
+
+    document.write("Is B a subset of A: " +
+        subset(setA, subsetB));
+
+</script>
+
+</body>
+</html>
